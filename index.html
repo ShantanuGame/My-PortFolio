@@ -257,48 +257,21 @@
 
     
   <!--contact-->
-  <section class="contact" id="contact">
-    <h2 class="heading">Contact <span>Me!</span></h2>
-    <form id="contact-form">
-        <div class="input-box">
-          <input type="text" id="name" name="name" placeholder="Full Name" required>
-          <input type="email" id="email" name="email" placeholder="Email Address" required>
-        </div>
-      
-        <div class="input-box">
-          <input type="text" id="phone" name="phone" placeholder="Mobile Number">
-          <input type="text" id="subject" name="subject" placeholder="Email Subject" required>
-        </div>
-      
-        <textarea id="message" name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-      
-        <input type="submit" value="Send Message" class="btn">
-      </form>
-      
-      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-      <script>
-        (function() {
-          emailjs.init("VNk5ugPUH2bUtQJW3"); // Replace with your EmailJS Public Key
-        })();
-      
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
-          event.preventDefault();
-      
-          emailjs.sendForm("service_pviserw", "template_l8oylhn", this)
-            .then(() => {
-              alert("Message sent successfully!");
-            }, (error) => {
-              alert("Failed to send message. Please try again.");
-              console.log(error);
-            });
-        });
-      </script>
-      
-  </section>
+<form id="contact-form" action="https://usebasin.com/f/a9ba78aed880" method="POST">
+  <div class="input-box">
+    <input type="text" id="name" name="name" placeholder="Full Name" required>
+    <input type="email" id="email" name="email" placeholder="Email Address" required>
+  </div>
 
+  <div class="input-box">
+    <input type="text" id="phone" name="phone" placeholder="Mobile Number">
+    <input type="text" id="subject" name="subject" placeholder="Email Subject" required>
+  </div>
 
+  <textarea id="message" name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
 
- 
+  <input type="submit" value="Send Message" class="btn">
+</form>
 
 
   <script src="https://unpkg.com/scrollreveal"></script>
