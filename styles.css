@@ -1,31 +1,85 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
 }
 
 
-
 html {
-    font-size: 62.5%;
-    overflow-x: hidden;
-  }
-  
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+
   body {
     background: rgb(255, 255, 255);
     color:rgb(0, 0, 0);
-  }
+      line-height: 1.6;
 
-  section {
-    min-height: 100vh;
-    padding: 10rem 9% 2rem;
   }
+/* Common Layout for Section */
+section {
+  min-height: 100vh;
+  padding: 10rem 9% 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Cards */
+.card,
+.card-container {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Navigation & Header */
+header,
+nav {
+  background: #f9f9f9;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #222;
+  color: #fff;
+}
+
+/* Custom Sections */
+.about1,
+.work-experience,
+.education,
+.portfolio,
+.certificates,
+.contact-section {
+  margin-top: 5rem;
+}
 
 
 
@@ -689,12 +743,8 @@ ul li {
 }
 
 
-/*certificates     */
-.certificates {
-  height: 400px;
-  padding: 50px 0;
-  background-color: aliceblue;
-}
+
+
 
 .certificates {
   margin: 0 auto;
@@ -706,19 +756,37 @@ ul li {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   position: relative;
   overflow: hidden;
+  padding: 50px 0;
+  background-color: aliceblue;
+  padding: 4rem 2rem;
+  text-align: center;
 }
 
+.certificates h3 {
+  margin-left: 530px;
+}
+
+.certificates .headingre {
+  margin: 0 auto 3rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
+  
+   
 .slider-container {
   width: 900px;
   height: 500px;
   margin: 0 auto;
-  overflow: hidden;
   position: relative;
+
 }
 
 .slider-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
+
+  
 }
 .slide {
   width: 900px;
@@ -731,12 +799,17 @@ ul li {
   background: aliceblue;
   margin-right: 10px;
   border-radius: 8px;
+  
+ 
 }
 .slide img {
   width: 100%;
-  height: 100%;
+    height: 550px;
+
   object-fit: fill; /* This stretches the image to fill entire slide */
   border-radius: 6px;
+
+ 
 }
 
 
@@ -830,6 +903,7 @@ ul li {
       justify-content: space-between;
       padding: 80px 10%;
       flex-wrap: wrap;
+      margin-top: -500px;
     }
 
     .contact-info {
@@ -998,6 +1072,8 @@ ul li {
   @media (max-width: 991px) {
     .header {
       padding: 2rem 3%;
+      width: 460px;
+
     }
   
     section {
@@ -1032,7 +1108,7 @@ ul li {
     left: 0;
     width: 100%;
     padding: 1rem 3%;
-    background: var(--bg-color);
+    background: white;
     border-top: .1rem solid rgba(0, 0, 0, .2);
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
     display: none;
@@ -1047,20 +1123,33 @@ ul li {
     }
 
     .honm {
+
         flex-direction: column;
     }
 
     .home-content h3{
         font-size: 2.6rem;
     }
+     .hero h1 {
+      margin-top: 40px;
+     }
 
+     .hero-image img {
+      margin-top: 40px;
+     }
+
+     .card {
+      width: 450px;
+      
+     }
     .home-content h1{
+        
         font-size: 5rem;
     }
 
     .home-img {
         width: 70vw;
-        margin-top: 4rem;
+        margin-top: 5rem;
     }
 
     .about {
@@ -1076,6 +1165,9 @@ ul li {
     }
 
     .portfolio h2 {
+      margin-top: 80px;
+            margin-left:160px;
+      font-size: 30px;
         margin-bottom: 3rem;
     }
 
@@ -1120,3 +1212,63 @@ ul li {
 }
 
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about1,
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .certificates .h2 {
+    align-items: center;
+    font-size: 2.4rem;
+  }
+
+  .slide {
+    width: 80%;
+  }
+}
+
+@media (max-width: 650px) {
+  .slide {
+    width: 450px;
+  }
+
+  .slider-container {
+    width: 450px;
+    height: 100px;
+  }
+
+    .slide img {
+      width: 450px;
+      height: 325px;
+    }
+  .certificates .headingre {
+    font-size: 2rem;
+    flex-direction: column-reverse;
+
+  }
+}
+
+@media (max-width: 650px) {
+  .slides {
+    width: 400px;
+  }
+  
+  
+  .certificates .headingre {
+    font-size: 2rem;
+  }
+
+.certificates h2,
+.awards h2,
+.certificates .headingre,
+.awards .headingre {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+}
