@@ -1266,6 +1266,7 @@ ul li {
 
 /****************************************** certificates and awards section ********************************/
 /* ======== MAIN LAYOUT ======== */
+/* ======== MAIN LAYOUT ======== */
 .certificates-row {
   display: flex;
   justify-content: space-between;
@@ -1280,8 +1281,8 @@ ul li {
   flex: 1 1 45%;
   border-radius: 10px;
   padding: 1rem;
-  /*box-shadow: 0 2px 6px rgba(0,0,0,0.1);*/
   overflow: hidden;
+  background-color: #fff;
 }
 
 .cert-subheading {
@@ -1305,13 +1306,12 @@ ul li {
 .slidess {
   display: flex;
   transition: transform 0.4s ease;
-  /* width is flexible, slides control width */
 }
 
 .slide,
 .slides {
   flex: 0 0 100%;        /* ✅ exactly one slide width */
-  height: 400px;         /* ✅ larger height */
+  height: 400px;         /* ✅ height of slides */
   border-radius: 8px;
   overflow: hidden;
   display: flex;
@@ -1323,7 +1323,7 @@ ul li {
 .slides img {
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* ✅ fit image nicely inside without cropping */
+  object-fit: contain;   /* ✅ fits image nicely */
   display: block;
 }
 
@@ -1355,19 +1355,32 @@ ul li {
 
 /* ======== RESPONSIVE ======== */
 @media (max-width: 992px) {
-  .certificates-row {
-    flex-direction: column;
-  }
   .certificates-left,
   .certificates-right {
     flex: 1 1 100%;
   }
 }
 
+@media (max-width: 768px) {
+  .certificates-row {
+    flex-direction: column;   /* ✅ stack vertically */
+    align-items: center;      /* center horizontally */
+    gap: 2rem;                /* space between */
+  }
+
+  .certificates-left,
+  .certificates-right {
+    flex: none;
+    width: 100%;              /* take full width */
+    max-width: 600px;         /* optional limit */
+    padding: 0;               /* no side padding issues */
+  }
+}
+
 @media (max-width: 600px) {
   .slide,
   .slides {
-    height: 300px;       /* smaller on mobile */
+    height: 300px;            /* ✅ smaller on phones */
   }
 }
 
@@ -1495,7 +1508,7 @@ ul li {
 @media (max-width: 600px) {
   .contact-section {
     padding: 30px 4%;
-    margin-top: -300px;
+    margin-top: 55px;
   }
   .contact-info h2 {
     font-size: 3.2rem;
@@ -1512,7 +1525,7 @@ ul li {
 @media (max-width: 480px) {
   .contact-section {
     padding: 20px 3%;
-    margin-top: -200px;
+    margin-top: 200px;
   }
   .contact-info h2 {
     font-size: 2.4rem;
