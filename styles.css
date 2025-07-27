@@ -144,30 +144,6 @@
   }
 }
 
-/* --- Keyframes for Fade-in Animation --- */
-@keyframes fadeInMobile {
-  from { opacity: 0; transform: translateY(40px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-@keyframes fadeInTab {
-  from { opacity: 0; transform: translateY(20px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-
-/* --- Apply Animation to Sections --- */
-@media (max-width: 991px) {
-  section, .about1, .card, .portfolio-box {
-    animation: fadeInTab 0.8s ease;
-  }
-}
-@media (max-width: 600px) {
-  section, .about1, .card, .portfolio-box {
-    animation: fadeInMobile 0.8s ease;
-  }
-}
-
-
-
 
 
 
