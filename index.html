@@ -79,7 +79,7 @@
   </div>
 
   <div class="hero-image slide-in-right" style="flex: 1; min-width: 370px; text-align: center;">
-    <img src="/images/techstack.png" alt="Tech Stack Icons" style="width: 100%; max-width: 600px;">
+    <img src="/Portfolio/images/techstack.png" alt="Tech Stack Icons" style="width: 100%; max-width: 600px;">
   </div>
 </section>
 
@@ -103,7 +103,7 @@
 
   <div class="about1">
     <div class="about2">
-      <img src="/images/home.jpg" alt="Profile Picture">
+      <img src="/Portfolio/images/home.jpg" alt="Profile Picture">
     </div>
     <div class="about3">
       <div class="about4">About Me</div>
@@ -181,10 +181,9 @@
 
 
 
-<section class="about" id="resume" style="background-color:white;">
-  <div class="about-content">
-            <h2 class="heading">Resume </h2>
-  </div>
+<section class="work-experience" id="resume" style="background-color:white;">
+        <h2 class="headingre" style="margin-left: 560px;">Resume</h2>
+
     <h2>Training/Internship</h2>
 
     <div class="timeline">
@@ -307,10 +306,8 @@
 
 
     <!--portfolio / latest projects-->
-    <section class="about" id="portfolio">
-      <div class="about-content">
-            <h2 class="heading">Projects </h2>
-  </div>
+    <section class="portfolio" id="portfolio" >
+        <h2 class="headingre">Latest <span>Project</span></h2>
       
         
         
@@ -446,64 +443,57 @@
 
 
   <!--Certificate -->
+<!-- Certificates & Awards in one row -->
+<section class="certificates" id="certificate" style="  background-color: #f9f9f9; padding:40px 5%;">
+  <h3 class="headingre">Certificates & Awards</h3>
 
-<section class="about" id="certificate" style="background-color: #f6f6f6;">
-        <div class="about-content">
-            <h2 class="heading">Certificates</h2>
-  </div>
-  <div class="certificate">
-    <div class="slider-container">
-      <div class="slider-track" id="sliderTrack">
-        <!-- Slides will be duplicated by JavaScript -->
-        <div class="slide"><img src="/images/Google-Business-analyst.png" alt="1" /></div>
-        <div class="slide"><img src="/images/redhat-sysadmin.png" alt="2" /></div>
-        <div class="slide"><img src="/images/Untitled design (1).jpg" alt="3" /></div>
-        <div class="slide"><img src="/images/sysadmin-udemy.png" alt="4" /></div>
-        <div class="slide"><img src="/images/aws-analyst.png" alt="5" /></div>
-        <div class="slide"><img src="/images/webdev.png" alt="5" /></div>
-        <div class="slide"><img src="/images/HP-1.png" alt="5" /></div>
-        <div class="slide"><img src="/images/HP-2.png" alt="5" /></div>
-        <div class="slide"><img src="/images/Ec-1.png" alt="5" /></div>
-        <div class="slide"><img src="/images/Ec-2.png" alt="5" /></div>
-
+  <div class="certificates-row">
+    <!-- Left side: Certificates -->
+    <div class="certificates-left">
+      <h4 class="cert-subheading">Certificates</h4>
+      <div class="certificate">
+        <div class="slider-container">
+          <div class="slider-track" id="sliderTrack">
+            <div class="slide"><img src="/Portfolio/images/Google-Business-analyst.png" alt="1" /></div>
+            <div class="slide"><img src="/Portfolio/images/redhat-sysadmin.png" alt="2" /></div>
+            <div class="slide"><img src="/Portfolio/images/Untitled design (1).jpg" alt="3" /></div>
+            <div class="slide"><img src="/Portfolio/images/sysadmin-udemy.png" alt="4" /></div>
+            <div class="slide"><img src="/Portfolio/images/aws-analyst.png" alt="5" /></div>
+            <div class="slide"><img src="/Portfolio/images/webdev.png" alt="6" /></div>
+            <div class="slide"><img src="/Portfolio/images/HP-1.png" alt="7" /></div>
+            <div class="slide"><img src="/Portfolio/images/HP-2.png" alt="8" /></div>
+            <div class="slide"><img src="/Portfolio/images/Ec-1.png" alt="9" /></div>
+            <div class="slide"><img src="/Portfolio/images/Ec-2.png" alt="10" /></div>
+          </div>
+        </div>
+        <div class="slider-buttons">
+          <button id="prevBtn">❮</button>
+          <button id="nextBtn">❯</button>
+        </div>
       </div>
     </div>
 
-    <div class="slider-buttons">
-      <button id="prevBtn">❮</button>
-      <button id="nextBtn">❯</button>
+    <!-- Right side: Awards -->
+    <div class="certificates-right">
+      <h4 class="cert-subheading">Awards & Achievements</h4>
+      <div class="sliders" style="height: auto;">
+        <div class="slides-wrappers">
+          <div class="slidess" id="slidess">
+            <div class="slides">
+              <img src="" alt="Coming soon">
+            </div>
+            <div class="slides">
+              <img src="" alt="Coming soon">
+            </div>
+          </div>
+          <div class="navs">
+            <button onclick="moveSlide(-1)">❮</button>
+            <button onclick="moveSlide(1)">❯</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-</section>
-
-
-
-<!--Awards sections-->
-
-<section class="about" id="awards" style="background-color: #f6f6f6;">
-  <div class="about-content">
-            <h2 class="heading">Awards & Achievements [ coming soon ]</h2>
-  </div>
-
-<div class="sliders " style="height: 10px;">
-  <div class="slides-wrappers">
-    <div class="slidess" id="slidess">
-      <div class="slides">
-        <img >
-      </div>
-      <div class="slides">
-        <img >
-      </div>
-     
-  </div>
-
-  <div class="navs">
-    <button onclick="moveSlide(-1)">❮</button>
-    <button onclick="moveSlide(1)">❯</button>
-  </div>
-</div>
-
 </section>
 
 
@@ -563,7 +553,7 @@
 
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="script.js" defer>
+    <script src="script.js">
 
     </script>
 </body>
