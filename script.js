@@ -70,37 +70,31 @@ window.onscroll = () => {
   function updateSlidePosition() {
     track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
   }
+// ✅ CERTIFICATE SLIDER
+(function () {
+  const track = document.getElementById("sliderTrack");
+  const slides = Array.from(track.children);
+  const slideWidth = slides[0].offsetWidth; // width of one slide
+  let currentIndex = 0;
+
+  function updateSlidePosition() {
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
 
   function nextSlide() {
     currentIndex++;
     if (currentIndex >= slides.length) {
       currentIndex = 0;
-      track.style.transition = "none";
-      updateSlidePosition();
-      requestAnimationFrame(() => {
-        track.style.transition = "transform 0.5s ease-in-out";
-        currentIndex++;
-        updateSlidePosition();
-      });
-    } else {
-      updateSlidePosition();
     }
+    updateSlidePosition();
   }
 
   function prevSlide() {
-    if (currentIndex <= 0) {
-      currentIndex = slides.length;
-      track.style.transition = "none";
-      updateSlidePosition();
-      requestAnimationFrame(() => {
-        track.style.transition = "transform 0.5s ease-in-out";
-        currentIndex--;
-        updateSlidePosition();
-      });
-    } else {
-      currentIndex--;
-      updateSlidePosition();
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = slides.length - 1;
     }
+    updateSlidePosition();
   }
 
   document.getElementById("nextBtn").addEventListener("click", nextSlide);
@@ -108,7 +102,41 @@ window.onscroll = () => {
 
   // Auto scroll every 3 seconds
   setInterval(nextSlide, 3000);
+})();
 
+// ✅ AWARDS SLIDER
+(function () {
+  const track2 = document.getElementById("slidess");
+  const slides2 = Array.from(track2.children);
+  const slideWidth2 = slides2[0].offsetWidth;
+  let currentIndex2 = 0;
+
+  function updateSlidePosition2() {
+    track2.style.transform = `translateX(-${currentIndex2 * slideWidth2}px)`;
+  }
+
+  function nextSlide2() {
+    currentIndex2++;
+    if (currentIndex2 >= slides2.length) {
+      currentIndex2 = 0;
+    }
+    updateSlidePosition2();
+  }
+
+  function prevSlide2() {
+    currentIndex2--;
+    if (currentIndex2 < 0) {
+      currentIndex2 = slides2.length - 1;
+    }
+    updateSlidePosition2();
+  }
+
+  document.querySelector(".navs button:nth-child(2)").addEventListener("click", nextSlide2);
+  document.querySelector(".navs button:nth-child(1)").addEventListener("click", prevSlide2);
+
+  // Auto scroll every 3 seconds
+  setInterval(nextSlide2, 3000);
+})();
 
 // ScrollReveal initialization
 ScrollReveal({ 
