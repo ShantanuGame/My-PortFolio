@@ -1,27 +1,14 @@
-name: CI/CD Pipeline
+name: Deploy to Render
 
 on:
   push:
-    branches: [ main ]   # change to master if your default branch is master
+    branches:
+      - main   # or master or whatever branch you deploy from
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # 1️⃣ Checkout your repo code
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # 2️⃣ (Optional) If you have npm dependencies
-      # - name: Install dependencies
-      #   run: npm install
-
-      # 3️⃣ (Optional) If you need a build step (React, Vite, etc.)
-      # - name: Build project
-      #   run: npm run build
-
-      # 4️⃣ Trigger Render deploy hook
-      - name: Deploy to Render
+      - name: Trigger Render Deploy Hook
         run: |
           curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
