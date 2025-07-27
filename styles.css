@@ -1,3 +1,40 @@
+/* ===== Intro Loader ===== */
+#intro-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111; /* background color for loader */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+#intro-loader h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: sans-serif;
+  white-space: nowrap;
+  border-right: 2px solid #fff;
+  padding-right: 5px;
+  animation: blinkCursor 0.7s infinite;
+}
+
+/* Cursor blink effect */
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
+
+/* Fade-out when done */
+#intro-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
 
 
 * {
@@ -1066,7 +1103,7 @@ ul li {
 
 /**************************************   education     ****************************************/
 .education {
-  margin-top: -150px;
+  margin-top: -10px;
 }
 
 /* ===================== */
@@ -1229,6 +1266,8 @@ ul li {
 /* For large phones / small tablets */
 @media (max-width: 768px) {
   .portfolio-container {
+    display: none;
+    ;
     grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets/large phones */
     gap: 1rem;
   }
@@ -1244,21 +1283,42 @@ ul li {
 /* For phones */
 @media (max-width: 480px) {
   .portfolio-container {
-    grid-template-columns: 1fr; /* 1 per row on small phones */
-    gap: 0.8rem;
+    display: none;
+    display: flex;                  /* ✅ switch from grid to flex */
+    flex-wrap: nowrap;              /* ✅ single row */
+    overflow-x: auto;               /* ✅ horizontal scroll */
+    gap: 1rem;
+    padding-bottom: 0.5rem;         /* space for scrollbar */
+    scroll-snap-type: x mandatory;  /* ✅ snap scrolling */
+    -webkit-overflow-scrolling: touch; /* ✅ smooth scrolling on iOS */
   }
+
+  .portfolio-container::-webkit-scrollbar {
+    height: 6px; /* small scrollbar */
+  }
+
+  .portfolio-container::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.3);
+    border-radius: 3px;
+  }
+
   .portfolio-container .portfolio-box {
+    flex: 0 0 80%;                 /* ✅ each card takes 80% width */
     height: 140px;
+    scroll-snap-align: start;      /* ✅ snap position */
   }
+
   .portfolio-layer h4,
   .portfolio-layer p {
     font-size: 1rem;
   }
+
   .portfolio-layer a {
     width: 3rem;
     height: 3rem;
   }
 }
+
 
 
 
@@ -1273,12 +1333,13 @@ ul li {
   align-items: flex-start;
   gap: 2rem;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 5rem;
 }
 
+/* Left & Right containers behave the same */
 .certificates-left,
 .certificates-right {
-  flex: 1 1 45%;
+  flex: 1 1 45%;          /* each takes around half space */
   border-radius: 10px;
   padding: 1rem;
   overflow: hidden;
@@ -1298,7 +1359,7 @@ ul li {
 .sliders {
   position: relative;
   width: 100%;
-  overflow: hidden;      /* ✅ hides extra slides */
+  overflow: hidden;      /* hides extra slides */
   border-radius: 10px;
 }
 
@@ -1310,8 +1371,9 @@ ul li {
 
 .slide,
 .slides {
-  flex: 0 0 100%;        /* ✅ exactly one slide width */
-  height: 400px;         /* ✅ height of slides */
+  flex: 0 0 100%;        /* show exactly one slide at a time */
+  aspect-ratio: 16/9;    /* ✅ maintain proper ratio */
+  max-height: 400px;     /* ✅ never exceed this height */
   border-radius: 8px;
   overflow: hidden;
   display: flex;
@@ -1323,7 +1385,7 @@ ul li {
 .slides img {
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* ✅ fits image nicely */
+  object-fit: contain;   /* fit image nicely without cutting */
   display: block;
 }
 
@@ -1357,37 +1419,51 @@ ul li {
 @media (max-width: 992px) {
   .certificates-left,
   .certificates-right {
-    flex: 1 1 100%;
+    flex: 1 1 100%;       /* full width each on tablets */
   }
 }
 
 @media (max-width: 768px) {
   .certificates-row {
-    flex-direction: column;   /* ✅ stack vertically */
-    align-items: center;      /* center horizontally */
-    gap: 2rem;                /* space between */
+    flex-direction: column;   /* stack vertically on smaller screens */
+    align-items: center;
+    gap: 2rem;
   }
 
   .certificates-left,
   .certificates-right {
     flex: none;
-    width: 100%;              /* take full width */
+    width: 100%;              /* take full width in column */
     max-width: 600px;         /* optional limit */
-    padding: 0;               /* no side padding issues */
+    padding: 0;
   }
 }
 
+/* ✅ FIX for phone screens: let image ratio drive height and prevent cutting */
 @media (max-width: 600px) {
-  .slide,
-  .slides {
-    height: 300px;            /* ✅ smaller on phones */
+  .certificates{
+    margin-top: -410px;
+  }
+  .certificates-left .slider-container,
+  .certificates-left .slider-track,
+  .certificates-left .slide {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  .certificates-left .slide img,
+  .certificates-left .slides img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;  /* do not crop */
   }
 }
 
 @media (max-width: 400px) {
-  .slide,
-  .slides {
-    height: 220px;
+  .certificates-left .slide,
+  .certificates-left .slides {
+    max-height: none;
   }
 }
 
@@ -1508,7 +1584,7 @@ ul li {
 @media (max-width: 600px) {
   .contact-section {
     padding: 30px 4%;
-    margin-top: 55px;
+    margin-top: px;
   }
   .contact-info h2 {
     font-size: 3.2rem;
