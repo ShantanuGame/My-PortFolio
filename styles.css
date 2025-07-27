@@ -12,6 +12,8 @@
   align-items: center;
   z-index: 9999;
   overflow: hidden;
+  padding: 0 1rem; /* some breathing space on smaller screens */
+  text-align: center; /* center align on narrow devices */
 }
 
 #intro-loader h1 {
@@ -22,6 +24,33 @@
   border-right: 2px solid #fff;
   padding-right: 5px;
   animation: blinkCursor 0.7s infinite;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Tablets (landscape & portrait) */
+@media (max-width: 992px) {
+  #intro-loader h1 {
+    font-size: 1.6rem; /* slightly smaller */
+  }
+}
+
+/* Large phones / small tablets */
+@media (max-width: 768px) {
+  #intro-loader h1 {
+    font-size: 1.4rem; /* scale down more */
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  #intro-loader h1 {
+    font-size: 1.2rem;
+    white-space: normal; /* allow wrapping on very narrow screens */
+    line-height: 1.4;
+    border-right: none; /* optional: remove cursor on wrap */
+    padding-right: 0;
+  }
 }
 
 /* Cursor blink effect */
@@ -434,6 +463,40 @@ footer {
     font-size: 1.4rem;
   }
 }
+/* ===================== */
+/* Mobile Navbar Fix */
+/* ===================== */
+@media (max-width: 768px) {
+  /* show menu icon */
+  #menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+
+  /* stack nav vertically and hide by default */
+  .navbar {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fbfbfb;
+    width: 200px; /* you can adjust */
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none; /* hidden initially */
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .navbar.active {
+    display: flex; /* show when menu-icon clicked */
+  }
+
+  .navbar a {
+    margin: 1rem 0;
+    font-size: 1.4rem;
+  }
+}
+
 
 /* For phones */
 @media (max-width: 480px) {
